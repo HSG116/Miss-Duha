@@ -1,0 +1,288 @@
+/* الخطوط والألوان الأساسية */
+:root {
+    --primary-color: #ff6b8b;
+    --secondary-color: #ff8e9e;
+    --dark-pink: #e84393;
+    --light-pink: #ffcce0;
+    --white: #ffffff;
+    --text-color: #333;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* التصميم العام */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #fff5f7;
+    background-image: url('https://i.postimg.cc/nVXfRxZk/3b639d1fb2619ce4d06a2a5f41cef2fb.jpg');
+    background-size: 100%;
+    color: var(--text-color);
+    text-align: center;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    margin-bottom: 3rem;
+    animation: fadeIn 1.5s ease;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: var(--dark-pink);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.heart-icon {
+    animation: pulse 2s infinite;
+}
+
+.intro {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+/* تصميم القلوب */
+.hearts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem auto;
+}
+
+.heart {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--light-pink);
+}
+
+.heart::before {
+    content: '\f004';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 3rem;
+    color: #ffb8c6;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.heart:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 107, 139, 0.3);
+}
+
+.heart.revealed {
+    background-color: var(--light-pink);
+    border-color: var(--primary-color);
+}
+
+.heart.revealed::before {
+    opacity: 0.1;
+}
+
+.heart-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.heart.revealed .heart-icon {
+    color: var(--dark-pink);
+    transform: scale(1.2);
+}
+
+.student-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark-pink);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.student-message {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* القلب الكبير */
+.big-heart-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    display: none;
+}
+
+.big-heart {
+    background: linear-gradient(135deg, #ff6b8b, #e84393);
+    color: white;
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(232, 67, 147, 0.3);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0);
+    animation: heartBeat 1.5s ease forwards;
+    border: 3px solid white;
+}
+
+.big-heart::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    transform: scale(0);
+    animation: ripple 2s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.big-heart h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.big-heart p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.signature {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* التأثيرات والحركات */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* الكونفيتي */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0.7;
+    animation: confettiFall 5s linear forwards;
+    z-index: 1000;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* التصميم للجوال */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1.5rem;
+    }
+    
+    .intro {
+        font-size: 1rem;
+    }
+    
+    .hearts-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .heart {
+        min-height: 150px;
+        padding: 1rem;
+    }
+    
+    .big-heart {
+        padding: 2rem 1rem;
+    }
+    
+    .big-heart h3 {
+        font-size: 1.4rem;
+    }
+    
+    .big-heart p {
+        font-size: 1rem;
+    }
+  }
