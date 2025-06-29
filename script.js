@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: "لميس",
-            message: "كل شي فيكي ملهم، وحتى سكاتك بيعلم",
+            message: "مع كل درس، كنتِ تزرعي فينا أمل… ومع كل كلمة، كنتِ تبني فينا قوة، ونعمة إنك كنتِ جزء من رحلتنا",
             icon: "fa-heart"
         },
         {
